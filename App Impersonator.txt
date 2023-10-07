@@ -1,0 +1,18 @@
+/* What does the app's SQL look like? */
+CREATE TABLE fitness_pal (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, workout_type TEXT, minutes INTEGER);
+
+INSERT INTO fitness_pal (name, workout_type, minutes) VALUES ("Katrina", "swimming", 50);
+INSERT INTO fitness_pal (name, workout_type, minutes) VALUES ("Vicky", "running", 40);
+INSERT INTO fitness_pal (name, workout_type, minutes) VALUES ("Ranbir", "free style", 60);
+INSERT INTO fitness_pal (name, workout_type, minutes) VALUES ("Aliya", "yoga", 20);
+INSERT INTO fitness_pal (name, workout_type, minutes) VALUES ("Kumar", "gym", 60);
+
+SELECT * FROM fitness_pal;
+
+UPDATE fitness_pal SET name = "Vicky Kaushal" WHERE id = 2;
+
+SELECT * FROM fitness_pal;
+
+DELETE FROM fitness_pal WHERE id = 5;
+
+SELECT * FROM fitness_pal;

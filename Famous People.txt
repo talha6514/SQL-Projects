@@ -1,0 +1,48 @@
+/* Create table about the people and what they do here */
+CREATE TABLE movie_stars (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);
+insert into movie_stars (name) values ("Benedict Cumberbatch");
+insert into movie_stars (name) values ("Mark Ruffalo");
+insert into movie_stars (name) values ("Tom Holland");
+insert into movie_stars (name) values ("Scarlet Johannson");
+insert into movie_stars (name) values ("Ryan Reynolds");
+insert into movie_stars (name) values ("Chris Evans");
+insert into movie_stars (name) values ("Chris Hemsworth");
+insert into movie_stars (name) values ("Elizabeth Olsen");
+insert into movie_stars (name) values ("Robert Downey Jr");
+insert into movie_stars (name) values ("Chadwik Boseman");
+insert into movie_stars (name) values ("Peter Dinklage");
+
+
+create table movies (id integer primary key autoincrement, title text, actor_id integer);
+insert into movies (title,actor_id) values ("Green Lantern", 5);
+insert into movies (title,actor_id) values ("Sherlock Holmes", 1);
+insert into movies (title,actor_id) values ("Game of thrones", 11);
+insert into movies (title,actor_id) values ("Wanda Vision", 8);
+insert into movies (title,actor_id) values ("Black Panther", 10);
+insert into movies (title,actor_id) values ("Thor", 7);
+insert into movies (title,actor_id) values ("Iron Man", 9);
+insert into movies (title,actor_id) values ("Hulk", 2);
+insert into movies (title,actor_id) values ("Spiderman", 3);
+insert into movies (title,actor_id) values ("Before we go", 6);
+insert into movies (title,actor_id) values ("Black Widow", 4);
+
+
+create table marital_status (id integer primary key autoincrement, person_id integer, status text);
+insert into marital_status (person_id,status) values (1, "married");
+insert into marital_status (person_id,status) values (2, "married");
+insert into marital_status (person_id,status) values (3, "non-married");
+insert into marital_status (person_id,status) values (4, "divorced");
+insert into marital_status (person_id,status) values (5, "divorced");
+insert into marital_status (person_id,status) values (6, "non-married");
+insert into marital_status (person_id,status) values (7, "married");
+insert into marital_status (person_id,status) values (8, "non-married");
+insert into marital_status (person_id,status) values (9, "non-married");
+insert into marital_status (person_id,status) values (10, "non-married");
+insert into marital_status (person_id,status) values (11, "married");
+
+EXPLAIN QUERY PLAN
+select movie_stars.name, movies.title, marital_status.status from movie_stars
+join movies
+on movie_stars.id = movies.actor_id
+join marital_status
+on movie_stars.id = marital_status.person_id;
